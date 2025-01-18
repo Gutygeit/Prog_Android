@@ -3,12 +3,12 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.google.ksp)
-    alias(libs.plugins.google.hilt)
+    alias(libs.plugins.google.dagger)
 }
 
 android {
     namespace = "fr.uha.hassenforder.team"
-    compileSdk = 34
+    compileSdk = 35
 //    compileSdk = Integer.getInteger(libs.versions.sdk.get())
 
     defaultConfig {
@@ -92,6 +92,7 @@ dependencies {
     implementation(libs.hilt.navigation)
     implementation(libs.hilt.work)
     implementation(libs.work.runtime)
+    ksp(libs.dagger.ksp)
     ksp(libs.hilt.ksp)
 
     // image
