@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "fr.uha.hassenforder.android"
-    compileSdk = 34
+    compileSdk = 35
 //    compileSdk = Integer.getInteger(libs.versions.sdk.get())
 
     defaultConfig {

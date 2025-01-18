@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Team-2025"
+rootProject.name = "V-Drive"
 include(":app")
 include(":android")
