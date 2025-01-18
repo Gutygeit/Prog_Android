@@ -1,0 +1,18 @@
+<resources>
+    <string name="title_day">Select a day</string>
+    <string name="title_time">Select a time</string>
+    <string name="title_drawable_picker">Drawable selector</string>
+
+    <string name="date_now">now</string>
+    <string name="date_today">today</string>
+    <string name="date_yesterday">yesterday</string>
+    <string name="date_tomorrow">tomorrow</string>
+
+    <string name="duration">duration</string>
+
+    <string name="valid">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="loading">Loading content</string>
+    <string name="error">Error fetching content</string>
+</resources>
