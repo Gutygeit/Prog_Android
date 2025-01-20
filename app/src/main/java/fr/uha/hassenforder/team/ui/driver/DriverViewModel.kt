@@ -1,25 +1,22 @@
 package fr.uha.hassenforder.team.ui.driver
 
-import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import fr.uha.hassenforder.android.ui.app.UITitleBuilder
 import fr.uha.hassenforder.android.ui.app.UITitleState
 import fr.uha.hassenforder.android.ui.field.FieldWrapper
+import fr.uha.hassenforder.android.viewmodel.Result
 import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.License
 import fr.uha.hassenforder.team.repository.DriverRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.*
-import javax.inject.Inject
-import fr.uha.hassenforder.android.viewmodel.Result
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+
+@HiltViewModel
 class DriverViewModel @Inject constructor(
     private val repository: DriverRepository
 ): ViewModel() {

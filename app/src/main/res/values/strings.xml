@@ -4,4 +4,18 @@
     <string name="driver">Driver</string>
     <string name="shift">Shift</string>
     <string name="settings">Settings</string>
+    <string name="license_must_set">License must be set</string>
+    <string name="value_too_short">Value is too short</string>
+    <string name="value_too_long">Value is too long</string>
+    <string name="phone_illegal">Phone is illegal</string>
+    <string name="value_blank">Value is blank</string>
+    <string name="value_empty">Value is empty</string>
+    <string name="list_driver">Lift of driver</string>
+    <string name="edit_driver">Driver to edit</string>
+    <string name="save">save</string>
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
+    <string name="phone">Phone</string>
+    <string name="license">License</string>
+    <string name="create_driver">Create a driver</string>
 </resources>

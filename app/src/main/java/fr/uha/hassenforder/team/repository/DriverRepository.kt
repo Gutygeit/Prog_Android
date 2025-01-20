@@ -31,11 +31,11 @@ class DriverRepository(
 
     @WorkerThread
     suspend fun upsert(driver: Driver) : Long = withContext(dispatcher){
-        return@withContext DriverDao.upsert(driver)
+        return@withContext driverDao.upsert(driver)
     }
 
     @WorkerThread
     suspend fun delete(driver: Driver) = withContext(dispatcher){
-        DriverDao.delete(driver)
+        driverDao.delete(driver)
     }
 }
