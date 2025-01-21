@@ -20,6 +20,7 @@ import fr.uha.hassenforder.team.model.ShiftDriverAssociation
     version = 1,
     exportSchema = false
 )
+
 abstract class ShiftDatabase : RoomDatabase() {
 
     abstract fun driverDAO() : DriverDao
@@ -30,7 +31,7 @@ abstract class ShiftDatabase : RoomDatabase() {
         private lateinit var instance : ShiftDatabase
 
         fun create (context : Context) : ShiftDatabase {
-            instance = Room.databaseBuilder(context, ShiftDatabase::class.java, "team.db").build()
+            instance = Room.databaseBuilder(context, ShiftDatabase::class.java, "shift.db").build()
             return instance
         }
 
@@ -39,5 +40,4 @@ abstract class ShiftDatabase : RoomDatabase() {
         }
 
     }
-
 }

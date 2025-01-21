@@ -18,4 +18,13 @@
     <string name="phone">Phone</string>
     <string name="license">License</string>
     <string name="create_driver">Create a driver</string>
+    <string name="duration_too_short">Duration too short</string>
+    <string name="duration_too_long">Duration too long</string>
+    <string name="date_must_set">Date must set</string>
+    <string name="date_too_old">Date is too old</string>
+    <string name="date_too_far">Date is too far</string>
+    <string name="location">Location</string>
+    <string name="duration">Duration</string>
+    <string name="date">Date</string>
+    <string name="title_day">Select a day</string>
 </resources>
