@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.Index
 
 @Entity(
-    tableName = "sdas",
+    tableName = "spas",
     primaryKeys = ["sid", "did"],
     indices = [Index("sid"), Index("did")]
 )

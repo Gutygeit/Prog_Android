@@ -16,7 +16,7 @@ import fr.uha.hassenforder.team.ui.GreetingScreen
 import fr.uha.hassenforder.team.ui.ShiftAppScreen
 import fr.uha.hassenforder.team.ui.theme.Team2025Theme
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

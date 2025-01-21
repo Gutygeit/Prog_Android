@@ -54,5 +54,5 @@ object AppModule {
         ioDispatcher: CoroutineDispatcher,
         shiftDao: ShiftDao
     ) = ShiftRepository(ioDispatcher, shiftDao)
-
 }
+
