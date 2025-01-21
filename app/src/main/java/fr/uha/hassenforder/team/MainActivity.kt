@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
-import fr.uha.hassenforder.team.ui.GreetingScreen
 import fr.uha.hassenforder.team.ui.ShiftAppScreen
 import fr.uha.hassenforder.team.ui.theme.Team2025Theme
 
@@ -27,7 +26,6 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    //Greeting("Android")
                     ShiftAppScreen()
                 }
             }

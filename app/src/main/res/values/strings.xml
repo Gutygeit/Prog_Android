@@ -27,4 +27,9 @@
     <string name="duration">Duration</string>
     <string name="date">Date</string>
     <string name="title_day">Select a day</string>
+    <string name="date_format">Incorrect date format</string>
+    <string name="passengers">Passengers</string>
+    <string name="list_shift">List Shifts</string>
+    <string name="edit_shift">Edit shift</string>
+    <string name="create_shift">Create shift</string>
 </resources>
