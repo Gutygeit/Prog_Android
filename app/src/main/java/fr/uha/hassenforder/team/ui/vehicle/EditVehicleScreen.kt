@@ -54,7 +54,7 @@ fun EditVehicleScreen(
         ){
             StateScreen(state = uiState) {
                 content ->
-                SuccessVehicleScreen(content, { vm.send(it) })
+                SuccessVehicleScreen(content) { vm.send(it) }
             }
         }
     }

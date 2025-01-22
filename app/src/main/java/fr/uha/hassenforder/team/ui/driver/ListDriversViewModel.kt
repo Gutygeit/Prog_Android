@@ -42,7 +42,7 @@ class ListDriversViewModel @Inject constructor (
     fun send (uiEvent : UIEvent) {
         viewModelScope.launch {
             when (uiEvent) {
-                is ListDriversViewModel.UIEvent.OnDelete -> onDelete(uiEvent.driver)
+                is UIEvent.OnDelete -> onDelete(uiEvent.driver)
             }
         }
     }

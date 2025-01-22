@@ -6,20 +6,19 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import fr.uha.hassenforder.android.ui.app.UITitleBuilder
 import fr.uha.hassenforder.android.ui.app.UITitleState
 import fr.uha.hassenforder.android.ui.field.FieldWrapper
+import fr.uha.hassenforder.android.viewmodel.Result
+import fr.uha.hassenforder.team.database.ShiftUpdateDTO
 import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.FullShift
 import fr.uha.hassenforder.team.model.Shift
+import fr.uha.hassenforder.team.model.Vehicle
 import fr.uha.hassenforder.team.repository.ShiftRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
-import fr.uha.hassenforder.android.viewmodel.Result
-import fr.uha.hassenforder.shift.ui.shift.ListShiftsViewModel
-import fr.uha.hassenforder.team.database.ShiftUpdateDTO
-import fr.uha.hassenforder.team.model.Vehicle
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -121,7 +120,6 @@ class ShiftViewModel @Inject constructor(
                 is UIEvent.RemoveMember ->
                     repository.removeMember(sid, uiEvent.newValue)
 
-                else -> {}
             }
         }
     }

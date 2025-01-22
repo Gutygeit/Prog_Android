@@ -135,7 +135,6 @@ class VehicleViewModel @Inject constructor(
                 is UIEvent.MatriculationChanged -> _matriculationState.value = fieldBuilder.buildMatriculation(uiEvent.newValue)
                 is UIEvent.KilometersChanged -> _kilometersState.value = fieldBuilder.buildKilometers(uiEvent.newValue)
                 is UIEvent.VehicleStatusChanged -> _vehicleStatusState.value = fieldBuilder.buildVehicleStatus(uiEvent.newValue)
-                else -> {}
             }
         }
     }
@@ -152,7 +151,7 @@ class VehicleViewModel @Inject constructor(
     fun save() = viewModelScope.launch {
         if (_initialVehicleState.value is Result.Success) return@launch
         if (uiState.value !is Result.Success) return@launch
-        val oldVehicle  = _initialVehicleState.value as Result.Success
+        //val oldVehicle  = _initialVehicleState.value as Result.Success
         val vehicle = Vehicle (
             _id.value,
             _brandAndModelState.value.value!!,

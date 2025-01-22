@@ -43,7 +43,7 @@ class FeedDatabase (
     }
 
     @Suppress("unused")
-    suspend fun populate(mode : Int) {
+    suspend fun populate(/*mode : Int*/) { //Taking off the mode parameter as it is not used and remove the '0' from populate() in SettingsViewModel
         val vids = feedVehicles()
         val dids = feedDrivers()
         feedShifts(vids, dids)

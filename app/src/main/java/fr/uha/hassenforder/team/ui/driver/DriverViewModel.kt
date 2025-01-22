@@ -135,7 +135,6 @@ class DriverViewModel @Inject constructor(
                 is UIEvent.GenderChanged -> _licenseState.value =
                     fieldBuilder.buildLicense(uiEvent.newValue)
 
-                else -> {}
             }
         }
     }
@@ -152,7 +151,7 @@ class DriverViewModel @Inject constructor(
     fun save() = viewModelScope.launch {
         if (_initialDriverState.value !is Result.Success) return@launch
         if (uiState.value !is Result.Success) return@launch
-        val oldDriver = _initialDriverState.value as Result.Success
+        //val oldDriver = _initialDriverState.value as Result.Success
         val driver = Driver (
             _id.value,
             _firstnameState.value.value!!,

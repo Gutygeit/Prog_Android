@@ -14,7 +14,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootGraph
-import com.ramcosta.composedestinations.generated.destinations.CreateDriverScreenDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fr.uha.hassenforder.android.ui.StateScreen
 import fr.uha.hassenforder.android.ui.app.AppMenuEntry
@@ -59,7 +58,7 @@ fun CreateVehicleScreenDestination(
         ) {
             StateScreen(state = uiState) {
                 content ->
-                SuccessVehicleScreen(content, { vm.send(it)})
+                SuccessVehicleScreen(content) { vm.send(it) }
             }
         }
     }

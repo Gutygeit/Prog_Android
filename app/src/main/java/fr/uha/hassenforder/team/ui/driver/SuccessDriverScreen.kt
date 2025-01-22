@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import fr.uha.hassenforder.android.ui.field.Orientation
 import fr.uha.hassenforder.android.ui.field.OutlinedEnumRadioGroupWrapper
 import fr.uha.hassenforder.android.ui.field.OutlinedTextFieldWrapper
@@ -16,7 +15,7 @@ fun SuccessDriverScreen(
     driver: DriverViewModel.UIState,
     send : (DriverViewModel.UIEvent) -> Unit,
 ) {
-    val context = LocalContext.current
+    //val context = LocalContext.current
 
     Column()
     {
@@ -43,7 +42,7 @@ fun SuccessDriverScreen(
             onValueChange = { send(DriverViewModel.UIEvent.GenderChanged(License.valueOf(it))) },
             modifier = Modifier.fillMaxWidth(),
             orientation = Orientation.HORIZONTAL,
-            itemValues = License.values(),
+            itemValues = License.entries.toTypedArray(),
             labelId = R.string.license,
         )
     }
