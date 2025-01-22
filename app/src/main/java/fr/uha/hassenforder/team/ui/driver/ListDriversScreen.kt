@@ -36,6 +36,9 @@ import fr.uha.hassenforder.team.R
 import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.License
 import androidx.compose.foundation.lazy.items
+import com.ramcosta.composedestinations.generated.destinations.CreateDriverScreenDestination
+import com.ramcosta.composedestinations.generated.destinations.EditDriverScreenDestination
+import fr.uha.hassenforder.team.ui.settings.SuccessListDriversScreen
 
 
 @Destination<RootGraph>
@@ -43,7 +46,7 @@ import androidx.compose.foundation.lazy.items
 fun ListDriversScreen (
     vm : ListDriversViewModel = hiltViewModel(),
     navigator: DestinationsNavigator
-) {/*
+) {
     val uiState by vm.uiState.collectAsStateWithLifecycle()
 
     Scaffold (
@@ -89,7 +92,7 @@ fun SuccessListPersonsScreen (
 
 @Composable
 fun DriverItem (driver : Driver) {
-    val gender : ImageVector =
+    val license : ImageVector =
         when(driver.license) {
             License.A -> Icons.Outlined.Badge
             License.B -> Icons.Outlined.Badge
@@ -112,7 +115,7 @@ fun DriverItem (driver : Driver) {
             }
         },
         trailingContent = {
-            Icon(imageVector = gender, contentDescription = "gender", modifier = Modifier.size(48.dp))
+            Icon(imageVector = license, contentDescription = "license", modifier = Modifier.size(48.dp))
         }
-    )*/
+    )
 }

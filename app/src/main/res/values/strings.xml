@@ -10,7 +10,7 @@
     <string name="phone_illegal">Phone is illegal</string>
     <string name="value_blank">Value is blank</string>
     <string name="value_empty">Value is empty</string>
-    <string name="list_driver">Lift of driver</string>
+    <string name="list_driver">List of driver</string>
     <string name="edit_driver">Driver to edit</string>
     <string name="save">save</string>
     <string name="firstname">Firstname</string>
@@ -32,4 +32,5 @@
     <string name="list_shift">List Shifts</string>
     <string name="edit_shift">Edit shift</string>
     <string name="create_shift">Create shift</string>
+    <string name="driver_picker">Select a driver</string>
 </resources>

@@ -23,6 +23,7 @@ import fr.uha.hassenforder.android.ui.app.BottomBarDestination
 import fr.uha.hassenforder.team.R
 import androidx.navigation.compose.rememberNavController
 import com.ramcosta.composedestinations.generated.destinations.ListDriversScreenDestination
+import com.ramcosta.composedestinations.generated.destinations.ListShiftsScreenDestination
 import com.ramcosta.composedestinations.generated.destinations.SettingsScreenDestination
 
 @Composable
@@ -61,7 +62,7 @@ private val bottomNavigations = arrayOf<BottomBarDestination>(
             unfocused = IconPicture(vector = Icons.Outlined.Person)
         ),
         labelId = R.string.driver
-    ),/*
+    ),
     BottomBarDestination(
         direction = ListShiftsScreenDestination,
         icon = IconRender(
@@ -69,7 +70,7 @@ private val bottomNavigations = arrayOf<BottomBarDestination>(
             unfocused = IconPicture(vector = Icons.Outlined.Group)
         ),
         labelId = R.string.shift
-    ),*/
+    ),
     BottomBarDestination(
         direction = SettingsScreenDestination,
         icon = IconRender(
