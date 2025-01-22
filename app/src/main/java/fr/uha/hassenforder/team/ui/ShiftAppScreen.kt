@@ -49,7 +49,7 @@ fun ShiftAppScreen() {
     }
 }
 
-private val bottomNavigations = arrayOf<BottomBarDestination>(
+private val bottomNavigations = arrayOf(
     BottomBarDestination(
         direction = GreetingScreenDestination,
         icon = IconRender(

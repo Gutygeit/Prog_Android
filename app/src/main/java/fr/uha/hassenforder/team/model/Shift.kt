@@ -2,7 +2,6 @@ package fr.uha.hassenforder.team.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
 
 @Entity(tableName = "shifts")
 data class Shift(

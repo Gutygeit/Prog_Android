@@ -33,9 +33,8 @@ import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.generated.destinations.CreateShiftScreenDestination
 import fr.uha.hassenforder.android.icons.TimeStart
 import fr.uha.hassenforder.team.model.Shift
-import androidx.compose.foundation.lazy.items
 import com.ramcosta.composedestinations.generated.destinations.EditShiftScreenDestination
-import fr.uha.hassenforder.team.ui.shift.ShiftViewModel
+import fr.uha.hassenforder.team.ui.shift.ListShiftsViewModel
 
 @Destination<RootGraph>
 @Composable

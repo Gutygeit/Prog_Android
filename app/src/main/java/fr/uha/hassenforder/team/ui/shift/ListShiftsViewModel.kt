@@ -1,4 +1,4 @@
-package fr.uha.hassenforder.shift.ui.shift
+package fr.uha.hassenforder.team.ui.shift
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -44,7 +44,6 @@ class ListShiftsViewModel @Inject constructor (
         viewModelScope.launch {
             when (uiEvent) {
                 is UIEvent.OnDelete -> onDelete(uiEvent.shift)
-                else -> {}
             }
         }
     }

@@ -59,7 +59,7 @@ fun CreateDriverScreen (
         ) {
             StateScreen(state = uiState) {
                     content ->
-                SuccessDriverScreen(content, { vm.send(it) })
+                SuccessDriverScreen(content) { vm.send(it) } //moved {} outside ()
             }
         }
     }

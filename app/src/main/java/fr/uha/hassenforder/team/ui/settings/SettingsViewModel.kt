@@ -24,7 +24,7 @@ class SettingsViewModel @Inject constructor(
 
     fun onFill () = viewModelScope.launch {
         withContext(dispatcher) {
-            FeedDatabase(database).populate(0)
+            FeedDatabase(database).populate()
         }
     }
 }

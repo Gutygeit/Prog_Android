@@ -5,6 +5,7 @@ import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.FullShift
 import fr.uha.hassenforder.team.model.Vehicle
 
+@Suppress("UNUSED_PARAMETER")
 class ShiftUIValidator (private val shift : FullShift) {
 
     fun validateLocation(newValue: String) : Int? {

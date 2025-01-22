@@ -1,9 +1,5 @@
 package fr.uha.hassenforder.team.database
 
-import androidx.room.ColumnInfo
-import androidx.room.Ignore
-import java.util.Date
-
 sealed class ShiftUpdateDTO {
 
     data class Location(

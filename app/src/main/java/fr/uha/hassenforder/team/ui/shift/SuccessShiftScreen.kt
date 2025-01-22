@@ -3,11 +3,9 @@ package fr.uha.hassenforder.team.ui.shift
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import fr.uha.hassenforder.android.ui.field.OutlinedIntField
 import fr.uha.hassenforder.android.ui.field.OutlinedIntFieldWrapper
 import fr.uha.hassenforder.android.ui.field.OutlinedTextFieldWrapper
 import fr.uha.hassenforder.team.R

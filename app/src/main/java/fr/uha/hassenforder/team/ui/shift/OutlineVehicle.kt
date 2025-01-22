@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import fr.uha.hassenforder.android.ui.field.FieldWrapper
 import fr.uha.hassenforder.android.ui.field.OutlinedDecorator
 import fr.uha.hassenforder.team.R
-import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.Vehicle
 
 @Composable

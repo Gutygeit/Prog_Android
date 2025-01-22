@@ -6,14 +6,18 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.outlined.Badge
+import androidx.compose.material.icons.outlined.DirectionsBus
+import androidx.compose.material.icons.outlined.DirectionsCar
+import androidx.compose.material.icons.outlined.FireTruck
 import androidx.compose.material.icons.outlined.Phone
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -26,22 +30,16 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootGraph
+import com.ramcosta.composedestinations.generated.destinations.CreateDriverScreenDestination
+import com.ramcosta.composedestinations.generated.destinations.EditDriverScreenDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fr.uha.hassenforder.android.ui.StateScreen
 import fr.uha.hassenforder.android.ui.SwipeableItem
 import fr.uha.hassenforder.android.ui.app.AppTopBar
 import fr.uha.hassenforder.android.ui.app.UITitleState
-import androidx.compose.material3.Text
 import fr.uha.hassenforder.team.R
 import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.License
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.outlined.DirectionsBus
-import androidx.compose.material.icons.outlined.DirectionsCar
-import androidx.compose.material.icons.outlined.FireTruck
-import com.ramcosta.composedestinations.generated.destinations.CreateDriverScreenDestination
-import com.ramcosta.composedestinations.generated.destinations.EditDriverScreenDestination
-import fr.uha.hassenforder.team.ui.settings.SuccessListDriversScreen
 
 
 @Destination<RootGraph>
@@ -66,7 +64,7 @@ fun ListDriversScreen (
             modifier = Modifier.padding(innerPadding)
         ) {
             StateScreen(state = uiState) { content ->
-                SuccessListDriversScreen(content, navigator, { vm.send (it) })
+                SuccessListDriversScreen(content, navigator) { vm.send(it) }
             }
         }
     }
@@ -78,7 +76,7 @@ fun SuccessListDriversScreen (
     navigator : DestinationsNavigator,
     send : (ListDriversViewModel.UIEvent) -> Unit
 ) {
-    LazyColumn () {
+    LazyColumn {
         items(
             items = uiState.drivers,
             key = { item -> item.did }

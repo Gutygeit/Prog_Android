@@ -19,7 +19,6 @@ import fr.uha.hassenforder.android.ui.StateScreen
 import fr.uha.hassenforder.android.ui.app.AppMenuEntry
 import fr.uha.hassenforder.android.ui.app.AppTopBar
 import fr.uha.hassenforder.team.R
-import fr.uha.hassenforder.team.model.Driver
 
 @Destination<RootGraph>
 @Composable
@@ -55,7 +54,7 @@ fun EditDriverScreen (
         ) {
             StateScreen(state = uiState) {
                     content ->
-                SuccessDriverScreen(content, { vm.send(it) })
+                SuccessDriverScreen(content) { vm.send(it) }
             }
         }
     }

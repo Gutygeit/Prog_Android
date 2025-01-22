@@ -32,7 +32,6 @@ class DriverUIValidator(private val uiState: StateFlow<Result<DriverViewModel.UI
             when {
                 newValue.length < 12 ->  R.string.value_too_short
                 newValue.length > 12 ->  R.string.value_too_long
-                newValue.length == 12 ->  null
                 else -> R.string.phone_illegal
             }
         } else {
