@@ -22,7 +22,7 @@ fun CreateShiftScreen (
 
     LaunchedEffect(Unit) {
         vm.create(
-            Shift(0, "Mulhouse", "12/12/2012", 5, 0)
+            Shift(0, "Mulhouse", "12/12/2012", 5, 0, 0)
         )
         vm.titleBuilder.setScreenNameId(R.string.create_shift)
     }

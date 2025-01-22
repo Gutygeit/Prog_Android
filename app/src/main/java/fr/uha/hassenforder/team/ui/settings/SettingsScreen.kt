@@ -8,11 +8,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Badge
+import androidx.compose.material.icons.outlined.BuildCircle
+import androidx.compose.material.icons.outlined.CheckCircle
 import androidx.compose.material.icons.outlined.DirectionsBus
 import androidx.compose.material.icons.outlined.DirectionsCar
 import androidx.compose.material.icons.outlined.FireTruck
 import androidx.compose.material.icons.outlined.Phone
+import androidx.compose.material.icons.outlined.PlayCircle
+import androidx.compose.material.icons.outlined.RemoveCircleOutline
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
@@ -28,6 +31,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootGraph
+import com.ramcosta.composedestinations.generated.destinations.EditDriverScreenDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fr.uha.hassenforder.android.ui.SwipeableItem
 import fr.uha.hassenforder.android.ui.app.AppTopBar
@@ -35,13 +39,16 @@ import fr.uha.hassenforder.android.ui.app.UITitleState
 import fr.uha.hassenforder.team.R
 import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.License
+import fr.uha.hassenforder.team.model.Vehicle
+import fr.uha.hassenforder.team.model.VehicleStatus
 import fr.uha.hassenforder.team.ui.driver.ListDriversViewModel
+import fr.uha.hassenforder.team.ui.vehicle.ListVehiclesViewModel
 
 @Destination<RootGraph>
 @Composable
 fun SettingsScreen (
     vm : SettingsViewModel = hiltViewModel(),
-    navigator: DestinationsNavigator
+    //navigator: DestinationsNavigator
 ) {
     Scaffold (
         topBar = { AppTopBar(UITitleState(screenNameId = R.string.settings)) },
@@ -69,7 +76,7 @@ fun SuccessListDriversScreen (
     navigator : DestinationsNavigator,
     send : (ListDriversViewModel.UIEvent) -> Unit
 ) {
-    LazyColumn () {
+    LazyColumn  {
         items(
             items = uiState.drivers,
             key = { item -> item.did }
@@ -116,4 +123,36 @@ fun DriverItem (driver : Driver) {
             Icon(imageVector = license, contentDescription = "license", modifier = Modifier.size(48.dp))
         }
     )
+}
+
+@Composable
+fun SuccessListVehiclesScreen (
+    uiState: ListVehiclesViewModel.UIState,
+    navigator : DestinationsNavigator,
+    send : (ListVehiclesViewModel.UIEvent) -> Unit
+) {
+    LazyColumn () {
+        items(
+            items = uiState.vehicles,
+            key = { item -> item.vid }
+        ) { item ->
+            SwipeableItem (
+                onEdit = { navigator.navigate(EditDriverScreenDestination(item.vid)) },
+                onDelete = { send(ListVehiclesViewModel.UIEvent.OnDelete(item)) }
+            ) {
+                VehicleItem (item)
+            }
+        }
+    }
+}
+
+@Composable
+fun VehicleItem(vehicle: Vehicle) {
+    val status : ImageVector =
+        when(vehicle.status) {
+            VehicleStatus.AVAILABLE -> Icons.Outlined.CheckCircle
+            VehicleStatus.IN_USE -> Icons.Outlined.PlayCircle
+            VehicleStatus.MAINTENANCE -> Icons.Outlined.BuildCircle
+            VehicleStatus.UNAVAILABLE -> Icons.Outlined.RemoveCircleOutline
+        }
 }

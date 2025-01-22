@@ -3,6 +3,7 @@ package fr.uha.hassenforder.team.ui.shift
 import fr.uha.hassenforder.team.R
 import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.FullShift
+import fr.uha.hassenforder.team.model.Vehicle
 
 class ShiftUIValidator (private val shift : FullShift) {
 
@@ -31,6 +32,10 @@ class ShiftUIValidator (private val shift : FullShift) {
             else -> null
         }
 
+    }
+
+    fun validateVehicle(newValue: Vehicle?) : Int? {
+        return null
     }
 
     fun validateDriver(newValue: Driver?) : Int? {

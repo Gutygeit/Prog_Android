@@ -42,6 +42,12 @@ fun SuccessShiftScreen(
                 modifier = Modifier.fillMaxWidth(),
                 labelId = R.string.duration,
             )
+            OutlinedVehicleFieldWrapper(
+                field = shift.vehicle,
+                onValueChange = { send(ShiftViewModel.UIEvent.VehicleChanged(it)) },
+                modifier = Modifier.fillMaxWidth(),
+                labelId = R.string.vehicle,
+            )
             OutlinedDriverFieldWrapper(
                 field = shift.driver,
                 onValueChange = { send(ShiftViewModel.UIEvent.DriverChanged(it)) },

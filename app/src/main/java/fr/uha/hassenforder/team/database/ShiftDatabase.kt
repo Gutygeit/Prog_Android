@@ -9,19 +9,25 @@ import fr.uha.hassenforder.android.database.DatabaseTypeConverters
 import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.Shift
 import fr.uha.hassenforder.team.model.ShiftDriverAssociation
+import fr.uha.hassenforder.team.model.ShiftVehiculeAssociation
+import fr.uha.hassenforder.team.model.Vehicle
 
 @TypeConverters(DatabaseTypeConverters::class)
 @Database(
     entities = [
+        Vehicle::class,
         Driver::class,
         Shift::class,
+        ShiftVehiculeAssociation::class,
         ShiftDriverAssociation::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 
 abstract class ShiftDatabase : RoomDatabase() {
+
+    abstract fun vehicleDAO() : VehicleDao
 
     abstract fun driverDAO() : DriverDao
 
@@ -31,7 +37,9 @@ abstract class ShiftDatabase : RoomDatabase() {
         private lateinit var instance : ShiftDatabase
 
         fun create (context : Context) : ShiftDatabase {
-            instance = Room.databaseBuilder(context, ShiftDatabase::class.java, "shift.db").build()
+            instance = Room.databaseBuilder(context, ShiftDatabase::class.java, "shift.db")
+                .fallbackToDestructiveMigration()
+                .build()
             return instance
         }
 

@@ -9,8 +9,10 @@ import dagger.hilt.components.SingletonComponent
 import fr.uha.hassenforder.team.database.DriverDao
 import fr.uha.hassenforder.team.database.ShiftDao
 import fr.uha.hassenforder.team.database.ShiftDatabase
+import fr.uha.hassenforder.team.database.VehicleDao
 import fr.uha.hassenforder.team.repository.DriverRepository
 import fr.uha.hassenforder.team.repository.ShiftRepository
+import fr.uha.hassenforder.team.repository.VehicleRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -32,6 +34,17 @@ object AppModule {
     @Singleton
     @Provides
     fun provideDatabase(@ApplicationContext appContext: Context) = ShiftDatabase.create(appContext)
+
+    @Singleton
+    @Provides
+    fun provideVehicleDao(db: ShiftDatabase) = db.vehicleDAO()
+
+    @Singleton
+    @Provides
+    fun provideVehicleRepository(
+        ioDispatcher: CoroutineDispatcher,
+        vehicleDao: VehicleDao
+    ) = VehicleRepository(ioDispatcher, vehicleDao)
 
     @Singleton
     @Provides

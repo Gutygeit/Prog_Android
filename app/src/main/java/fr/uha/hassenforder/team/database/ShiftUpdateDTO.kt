@@ -21,6 +21,11 @@ sealed class ShiftUpdateDTO {
         val duration: Int
     ) : ShiftUpdateDTO()
 
+    data class Vehicle(
+        val sid: Long,
+        val vehicleId: Long
+    ) : ShiftUpdateDTO()
+
     data class Driver(
         val sid: Long,
         val driverId: Long

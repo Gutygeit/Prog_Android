@@ -7,6 +7,8 @@ import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.FullShift
 import fr.uha.hassenforder.team.model.Shift
 import fr.uha.hassenforder.team.model.ShiftDriverAssociation
+import fr.uha.hassenforder.team.model.ShiftVehiculeAssociation
+import fr.uha.hassenforder.team.model.Vehicle
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
@@ -35,6 +37,7 @@ class ShiftRepository(
             is ShiftUpdateDTO.Location -> shiftDao.update(update)
             is ShiftUpdateDTO.Date -> shiftDao.update(update)
             is ShiftUpdateDTO.Duration -> shiftDao.update(update)
+            is ShiftUpdateDTO.Vehicle -> shiftDao.update(update)
             is ShiftUpdateDTO.Driver -> shiftDao.update(update)
         }
     }
@@ -50,6 +53,16 @@ class ShiftRepository(
     }
 
     @WorkerThread
+    suspend fun addVehicle(sid : Long, vehicle: Vehicle) = withContext(dispatcher){
+        shiftDao.addVehicle(ShiftVehiculeAssociation(sid, vehicle.vid))
+    }
+
+    @WorkerThread
+    suspend fun removeVehicle(sid : Long, vehicle: Vehicle) = withContext(dispatcher){
+        shiftDao.deleteVehicle(ShiftVehiculeAssociation(sid, vehicle.vid))
+    }
+
+    @WorkerThread
     suspend fun addMember(sid : Long, driver : Driver) = withContext(dispatcher){
         shiftDao.addMember(ShiftDriverAssociation(sid, driver.did))
     }
@@ -59,3 +72,4 @@ class ShiftRepository(
         shiftDao.deleteMember(ShiftDriverAssociation(sid, driver.did))
     }
 }
+
