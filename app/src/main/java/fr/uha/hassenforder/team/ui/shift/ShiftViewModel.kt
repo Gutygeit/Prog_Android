@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.map
 import fr.uha.hassenforder.android.viewmodel.Result
 import fr.uha.hassenforder.shift.ui.shift.ListShiftsViewModel
 import fr.uha.hassenforder.team.database.ShiftUpdateDTO
+import fr.uha.hassenforder.team.model.Vehicle
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -34,6 +35,7 @@ class ShiftViewModel @Inject constructor(
         val location: FieldWrapper<String>,
         val date: FieldWrapper<String>,
         val duration: FieldWrapper<Int>,
+        val vehicle: FieldWrapper<Vehicle?>,
         val driver: FieldWrapper<Driver?>,
         val passengers: FieldWrapper<List<Driver>>,
         val shift: FullShift,
@@ -50,11 +52,13 @@ class ShiftViewModel @Inject constructor(
                     shift.shift.duration,
                     validator.validateDuration(shift.shift.duration)
                 )
+                val vehicle: FieldWrapper<Vehicle?> =
+                    FieldWrapper(shift.vehicle, validator.validateVehicle(shift.vehicle))
                 val driver: FieldWrapper<Driver?> =
                     FieldWrapper(shift.driver, validator.validateDriver(shift.driver))
                 val passengers: FieldWrapper<List<Driver>> =
                     FieldWrapper(shift.passengers, validator.validatePassengers(shift.passengers))
-                return UIState(location, date, duration, driver, passengers, shift)
+                return UIState(location, date, duration, vehicle ,driver, passengers, shift)
             }
         }
     }
@@ -85,6 +89,7 @@ class ShiftViewModel @Inject constructor(
         data class LocationChanged(val newValue: String) : UIEvent()
         data class DateChanged(val newValue: String) : UIEvent()
         data class DurationChanged(val newValue: Int) : UIEvent()
+        data class VehicleChanged(val newValue: Vehicle?) : UIEvent()
         data class DriverChanged(val newValue: Driver?) : UIEvent()
         data class AddMember(val newValue: Driver) : UIEvent()
         data class RemoveMember(val newValue: Driver) : UIEvent()
@@ -104,6 +109,9 @@ class ShiftViewModel @Inject constructor(
                 is UIEvent.DurationChanged ->
                     repository.update(ShiftUpdateDTO.Duration(sid, uiEvent.newValue))
 
+                is UIEvent.VehicleChanged ->
+                    repository.update(ShiftUpdateDTO.Vehicle(sid, uiEvent.newValue?.vid ?: 0))
+
                 is UIEvent.DriverChanged ->
                     repository.update(ShiftUpdateDTO.Driver(sid, uiEvent.newValue?.did ?: 0))
 
@@ -118,12 +126,15 @@ class ShiftViewModel @Inject constructor(
         }
     }
 
-    fun edit (did : Long) = viewModelScope.launch {
+    fun edit (vid : Long, did : Long) = viewModelScope.launch {
+        _id.value = vid
         _id.value = did
     }
 
     fun create(shift: Shift) = viewModelScope.launch {
+        val vid : Long = repository.create(shift)
         val did : Long = repository.create(shift)
+        _id.value = vid
         _id.value = did
     }
 }

@@ -73,7 +73,7 @@ fun ListDriversScreen (
 }
 
 @Composable
-fun SuccessListPersonsScreen (
+fun SuccessListDriversScreen (
     uiState: ListDriversViewModel.UIState,
     navigator : DestinationsNavigator,
     send : (ListDriversViewModel.UIEvent) -> Unit

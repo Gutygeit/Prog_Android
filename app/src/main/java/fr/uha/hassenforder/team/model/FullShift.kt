@@ -8,6 +8,9 @@ data class FullShift(
     @Embedded
     val shift: Shift,
 
+    @Relation(parentColumn = "vehicleId", entityColumn = "vid")
+    val vehicle : Vehicle?,
+
     @Relation(parentColumn = "driverId", entityColumn = "did")
     val driver : Driver?,
 

@@ -9,6 +9,7 @@ import androidx.room.Update
 import fr.uha.hassenforder.team.model.FullShift
 import fr.uha.hassenforder.team.model.Shift
 import fr.uha.hassenforder.team.model.ShiftDriverAssociation
+import fr.uha.hassenforder.team.model.ShiftVehiculeAssociation
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -33,6 +34,9 @@ interface ShiftDao {
     suspend fun update (team : ShiftUpdateDTO.Duration)
 
     @Update(entity = Shift::class)
+    suspend fun update (team : ShiftUpdateDTO.Vehicle)
+
+    @Update(entity = Shift::class)
     suspend fun update (team : ShiftUpdateDTO.Driver)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -40,6 +44,12 @@ interface ShiftDao {
 
     @Delete
     suspend fun delete (team: Shift)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun addVehicle (assoc : ShiftVehiculeAssociation)
+
+    @Delete
+    suspend fun deleteVehicle (assoc : ShiftVehiculeAssociation)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addMember (assoc : ShiftDriverAssociation)

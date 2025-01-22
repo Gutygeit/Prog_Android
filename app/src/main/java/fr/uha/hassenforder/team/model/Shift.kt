@@ -11,5 +11,6 @@ data class Shift(
     val location : String,
     val date : String,
     val duration: Int,
+    val vehicleId : Long,
     val driverId : Long,
 )

@@ -21,7 +21,7 @@ fun EditShiftScreen (
     val uiState by vm.uiState.collectAsStateWithLifecycle()
 
     LaunchedEffect (Unit){
-        vm.edit(sid)
+        vm.edit(sid, sid)
         vm.titleBuilder.setScreenNameId(R.string.edit_shift)
     }
     StateScreen(state = uiState) {

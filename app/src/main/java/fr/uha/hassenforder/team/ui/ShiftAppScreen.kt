@@ -2,10 +2,12 @@ package fr.uha.hassenforder.team.ui
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DirectionsCarFilled
 import androidx.compose.material.icons.filled.Group
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.DirectionsCarFilled
 import androidx.compose.material.icons.outlined.Group
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Person
@@ -24,6 +26,7 @@ import fr.uha.hassenforder.team.R
 import androidx.navigation.compose.rememberNavController
 import com.ramcosta.composedestinations.generated.destinations.ListDriversScreenDestination
 import com.ramcosta.composedestinations.generated.destinations.ListShiftsScreenDestination
+import com.ramcosta.composedestinations.generated.destinations.ListVehiclesScreenDestination
 import com.ramcosta.composedestinations.generated.destinations.SettingsScreenDestination
 
 @Composable
@@ -54,6 +57,14 @@ private val bottomNavigations = arrayOf<BottomBarDestination>(
             unfocused = IconPicture(vector = Icons.Outlined.Home)
         ),
         labelId = R.string.home
+    ),
+    BottomBarDestination(
+        direction = ListVehiclesScreenDestination,
+        icon = IconRender(
+            focused = IconPicture(vector = Icons.Filled.DirectionsCarFilled),
+            unfocused = IconPicture(vector = Icons.Outlined.DirectionsCarFilled)
+        ),
+        labelId = R.string.vehicle
     ),
     BottomBarDestination(
         direction = ListDriversScreenDestination,
