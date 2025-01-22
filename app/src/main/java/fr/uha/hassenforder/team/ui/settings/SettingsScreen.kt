@@ -47,12 +47,12 @@ fun SettingsScreen (
                 modifier = Modifier.padding(innerPadding)
             ) {
                 Button(
-                    onClick = { /*vm.onClear() */}
+                    onClick = { vm.onClear() }
                 ) {
                     Text("Clear")
                 }
                 Button(
-                    onClick = { /*vm.onFill()*/ }
+                    onClick = { vm.onFill() }
                 ) {
                     Text("Fill")
                 }
