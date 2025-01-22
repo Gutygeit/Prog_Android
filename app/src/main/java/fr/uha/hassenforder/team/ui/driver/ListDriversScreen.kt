@@ -36,6 +36,9 @@ import fr.uha.hassenforder.team.R
 import fr.uha.hassenforder.team.model.Driver
 import fr.uha.hassenforder.team.model.License
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.outlined.DirectionsBus
+import androidx.compose.material.icons.outlined.DirectionsCar
+import androidx.compose.material.icons.outlined.FireTruck
 import com.ramcosta.composedestinations.generated.destinations.CreateDriverScreenDestination
 import com.ramcosta.composedestinations.generated.destinations.EditDriverScreenDestination
 import fr.uha.hassenforder.team.ui.settings.SuccessListDriversScreen
@@ -94,9 +97,9 @@ fun SuccessListPersonsScreen (
 fun DriverItem (driver : Driver) {
     val license : ImageVector =
         when(driver.license) {
-            License.A -> Icons.Outlined.Badge
-            License.B -> Icons.Outlined.Badge
-            License.C -> Icons.Outlined.Badge
+            License.A -> Icons.Outlined.DirectionsCar
+            License.B -> Icons.Outlined.DirectionsBus
+            License.C -> Icons.Outlined.FireTruck
         }
     ListItem (
         headlineContent = {

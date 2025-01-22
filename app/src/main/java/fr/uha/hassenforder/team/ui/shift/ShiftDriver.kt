@@ -10,8 +10,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.outlined.Badge
+import androidx.compose.material.icons.outlined.DirectionsBus
+import androidx.compose.material.icons.outlined.DirectionsCar
 import androidx.compose.material.icons.outlined.DoNotDisturb
 import androidx.compose.material.icons.outlined.Female
+import androidx.compose.material.icons.outlined.FireTruck
 import androidx.compose.material.icons.outlined.Male
 import androidx.compose.material.icons.outlined.Phone
 import androidx.compose.material3.Icon
@@ -29,9 +32,9 @@ fun ShiftDriver (
 ) {
     val license : ImageVector =
         when(driver.license) {
-            License.A -> Icons.Outlined.Badge
-            License.B -> Icons.Outlined.Badge
-            License.C -> Icons.Outlined.Badge
+            License.A -> Icons.Outlined.DirectionsCar
+            License.B -> Icons.Outlined.DirectionsBus
+            License.C -> Icons.Outlined.FireTruck
         }
     ListItem (
         headlineContent = {
