@@ -9,6 +9,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Badge
+import androidx.compose.material.icons.outlined.DirectionsBus
+import androidx.compose.material.icons.outlined.DirectionsCar
+import androidx.compose.material.icons.outlined.FireTruck
 import androidx.compose.material.icons.outlined.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -49,12 +52,12 @@ fun SettingsScreen (
                 Button(
                     onClick = { vm.onClear() }
                 ) {
-                    Text("Clear")
+                    Text("Nettoyer")
                 }
                 Button(
                     onClick = { vm.onFill() }
                 ) {
-                    Text("Fill")
+                    Text("Remplir")
                 }
             }
         }
@@ -89,9 +92,9 @@ fun SuccessListDriversScreen (
 fun DriverItem (driver : Driver) {
     val license : ImageVector =
         when(driver.license) {
-            License.A -> Icons.Outlined.Badge
-            License.B -> Icons.Outlined.Badge
-            License.C -> Icons.Outlined.Badge
+            License.A -> Icons.Outlined.DirectionsCar
+            License.B -> Icons.Outlined.DirectionsBus
+            License.C -> Icons.Outlined.FireTruck
         }
     ListItem (
         headlineContent = {

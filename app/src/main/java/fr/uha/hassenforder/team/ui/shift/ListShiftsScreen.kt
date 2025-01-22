@@ -103,7 +103,7 @@ fun ShiftItem (shift: Shift) {
                 Text(shift.date, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                 Text(",")
                 Text(shift.duration.toString(), fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                Text("hours")
+                Text("heures")
                 Icon(imageVector = Icons.TimeStart, contentDescription = "phone")
             }
         },

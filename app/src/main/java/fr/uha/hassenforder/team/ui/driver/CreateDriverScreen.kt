@@ -33,7 +33,7 @@ fun CreateDriverScreen (
 
     LaunchedEffect(Unit) {
         vm.create(
-            Driver(0, "Michel", "Hassenforder", "06123456789", License.A)
+            Driver(0, "Michel", "Hassenforder", "0612345678", License.A)
         )
         vm.titleBuilder.setScreenNameId(R.string.create_driver)
     }
