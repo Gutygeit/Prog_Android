@@ -12,7 +12,7 @@ class VehicleUIValidator(private val uiState: StateFlow<Result<VehicleViewModel.
             newValue.isEmpty()  ->  R.string.value_empty
             newValue.isBlank()  ->  R.string.value_blank
             newValue.length < 2 ->  R.string.value_too_short
-            newValue.length > 20 ->  R.string.value_too_long
+            newValue.length > 30 ->  R.string.value_too_long
             else -> null
         }
     }
@@ -21,8 +21,8 @@ class VehicleUIValidator(private val uiState: StateFlow<Result<VehicleViewModel.
         return when {
             newValue.isEmpty()  ->  R.string.value_empty
             newValue.isBlank()  ->  R.string.value_blank
-            newValue.length < 9 ->  R.string.value_too_short
-            newValue.length > 9 ->  R.string.value_too_long
+            newValue.length != 9 -> R.string.invalid_matriculation_length
+
             else -> null
         }
     }
@@ -36,7 +36,7 @@ class VehicleUIValidator(private val uiState: StateFlow<Result<VehicleViewModel.
 
     fun validateVehicleStatusChange(newValue: VehicleStatus?) : Int? {
         return when {
-            newValue == null ->  R.string.status_unkown
+            newValue == null ->  R.string.status_unknown
             else -> null
         }
     }

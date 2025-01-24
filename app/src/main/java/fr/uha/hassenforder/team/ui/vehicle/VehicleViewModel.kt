@@ -99,6 +99,7 @@ class VehicleViewModel @Inject constructor(
         initialValue = UITitleState()
     )
 
+
     private fun isModified (initial: Result<Vehicle>, fields : Result<UIState>): Boolean? {
         if (initial !is Result.Success) return null
         if (fields !is Result.Success) return null
@@ -108,6 +109,9 @@ class VehicleViewModel @Inject constructor(
         if (fields.content.vehicleStatusState.value != initial.content.status) return true
         return false
     }
+
+
+
 
     private fun hasError (fields : Result<UIState>): Boolean? {
         if (fields !is Result.Success) return null
@@ -128,6 +132,7 @@ class VehicleViewModel @Inject constructor(
         data class VehicleStatusChanged(val newValue: VehicleStatus): UIEvent()
     }
 
+    /*
     fun send (uiEvent: UIEvent) {
         viewModelScope.launch {
             when (uiEvent) {
@@ -138,6 +143,31 @@ class VehicleViewModel @Inject constructor(
             }
         }
     }
+     */
+    fun send(uiEvent: UIEvent) {
+        viewModelScope.launch {
+            when (uiEvent) {
+                is UIEvent.BrandAndModelChanged -> {
+                    _brandAndModelState.value = fieldBuilder.buildBrandAndModel(uiEvent.newValue)
+                    println("Brand and Model updated to: ${uiEvent.newValue}")
+                }
+                is UIEvent.MatriculationChanged -> {
+                    _matriculationState.value = fieldBuilder.buildMatriculation(uiEvent.newValue)
+                    println("Matriculation updated to: ${uiEvent.newValue}")
+                }
+                is UIEvent.KilometersChanged -> {
+                    _kilometersState.value = fieldBuilder.buildKilometers(uiEvent.newValue)
+                    println("Kilometers updated to: ${uiEvent.newValue}")
+                }
+                is UIEvent.VehicleStatusChanged -> {
+                    _vehicleStatusState.value = fieldBuilder.buildVehicleStatus(uiEvent.newValue)
+                    println("Status updated to: ${uiEvent.newValue}")
+                }
+            }
+        }
+    }
+
+
 
     fun edit (vid : Long) = viewModelScope.launch {
         _id.value = vid
@@ -148,6 +178,7 @@ class VehicleViewModel @Inject constructor(
         _id.value = vid
     }
 
+    /*
     fun save() = viewModelScope.launch {
         if (_initialVehicleState.value is Result.Success) return@launch
         if (uiState.value !is Result.Success) return@launch
@@ -161,4 +192,20 @@ class VehicleViewModel @Inject constructor(
         )
         repository.update(vehicle)
     }
+     */
+
+    fun save() = viewModelScope.launch {
+        if (_initialVehicleState.value !is Result.Success) return@launch
+        if (uiState.value !is Result.Success) return@launch
+        val vehicle = Vehicle(
+            _id.value,
+            _brandAndModelState.value.value!!,
+            _matriculationState.value.value!!,
+            _kilometersState.value.value!!,
+            _vehicleStatusState.value.value!!
+        )
+        repository.update(vehicle)
+        println("Vehicle saved: $vehicle")
+    }
+
 }

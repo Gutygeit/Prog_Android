@@ -48,3 +48,21 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
+
+//TODO
+
+/*
+Page véhicule :
+    - noms des status en français
+    - les status sont mal disposés
+    - Forcer les majuscules dans immats (facultatif)
+    - Empecher la desincrémentation dans kilométrage (facultatif)
+
+
+Page déplacements :
+    - Déplacements en bas mal affiché
+    - Pas de bouton pour valider un déplaement -> obliger de retour en arrière
+
+Page Paramètres :
+    - Améliorer le visu des boutons
+ */

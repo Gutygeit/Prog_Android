@@ -19,10 +19,25 @@ class VehicleRepository (
         return vehicleDao.getVehicleById(id)
     }
 
+    /*
     @WorkerThread
     suspend fun create(vehicle: Vehicle) : Long = withContext(dispatcher){
         return@withContext vehicleDao.create(vehicle)
     }
+     */
+
+    @WorkerThread
+    suspend fun create(vehicle: Vehicle): Long = withContext(dispatcher) {
+        try {
+            val id = vehicleDao.create(vehicle)
+            println("Vehicle created with ID: $id")
+            return@withContext id
+        } catch (e: Exception) {
+            println("Error inserting vehicle: ${e.message}")
+            throw e
+        }
+    }
+
 
     @WorkerThread
     suspend fun update(vehicle: Vehicle) : Long = withContext(dispatcher){
