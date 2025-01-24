@@ -53,7 +53,7 @@ fun EditVehicleScreen(
             modifier = Modifier.padding(innerPadding)
         ){
             StateScreen(state = uiState) {
-                content ->
+                    content ->
                 SuccessVehicleScreen(content) { vm.send(it) }
             }
         }

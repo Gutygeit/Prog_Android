@@ -33,7 +33,7 @@ fun CreateVehicleScreenDestination(
 
     LaunchedEffect (Unit) {
         vm.create(
-            Vehicle(0, "BMW - M3 E46", "XX-777-XX", 7777, VehicleStatus.AVAILABLE)
+            Vehicle(0, "", "", 0, VehicleStatus.AVAILABLE)
         )
         vm.titleBuilder.setScreenNameId(R.string.create_vehicle)
     }

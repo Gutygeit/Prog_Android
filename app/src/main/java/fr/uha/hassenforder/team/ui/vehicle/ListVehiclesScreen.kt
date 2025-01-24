@@ -29,6 +29,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootGraph
 import com.ramcosta.composedestinations.generated.destinations.CreateVehicleScreenDestinationDestination
 import com.ramcosta.composedestinations.generated.destinations.EditDriverScreenDestination
+import com.ramcosta.composedestinations.generated.destinations.EditVehicleScreenDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import fr.uha.hassenforder.android.ui.StateScreen
 import fr.uha.hassenforder.android.ui.SwipeableItem
@@ -78,7 +79,7 @@ fun SuccessListVehiclesScreen (
             key = { item -> item.vid }
         ) { item ->
             SwipeableItem (
-                onEdit = { navigator.navigate(EditDriverScreenDestination(item.vid)) },
+                onEdit = { navigator.navigate(EditVehicleScreenDestination(item.vid)) },
                 onDelete = { send(ListVehiclesViewModel.UIEvent.OnDelete(item)) }
             ) {
                 VehicleItem (item)
@@ -100,7 +101,9 @@ fun VehicleItem(vehicle: Vehicle) {
         headlineContent = {
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 Text(vehicle.brandAndModel)
+                Text("; ")
                 Text(vehicle.matriculation)
+                Text("; ")
                 Text(vehicle.kilometers.toString())
             }
         },
