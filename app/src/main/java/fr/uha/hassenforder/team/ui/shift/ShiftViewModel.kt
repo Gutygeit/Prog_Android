@@ -57,10 +57,11 @@ class ShiftViewModel @Inject constructor(
                     FieldWrapper(shift.driver, validator.validateDriver(shift.driver))
                 val passengers: FieldWrapper<List<Driver>> =
                     FieldWrapper(shift.passengers, validator.validatePassengers(shift.passengers))
-                return UIState(location, date, duration, vehicle ,driver, passengers, shift)
+                return UIState(location, date, duration, vehicle, driver, passengers, shift)
             }
         }
     }
+
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val uiState: StateFlow<Result<UIState>> = _id
@@ -124,16 +125,16 @@ class ShiftViewModel @Inject constructor(
         }
     }
 
-    fun edit (vid : Long, did : Long) = viewModelScope.launch {
+    fun edit(vid: Long, did: Long) = viewModelScope.launch {
         _id.value = vid
         _id.value = did
     }
 
+
     fun create(shift: Shift) = viewModelScope.launch {
-        val vid : Long = repository.create(shift)
-        val did : Long = repository.create(shift)
-        _id.value = vid
-        _id.value = did
+        val id: Long = repository.create(shift)
+        _id.value = id
     }
+
 }
 

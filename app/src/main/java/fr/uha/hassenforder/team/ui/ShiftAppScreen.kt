@@ -15,6 +15,7 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.generated.NavGraphs
 import com.ramcosta.composedestinations.generated.destinations.GreetingScreenDestination
@@ -80,7 +81,7 @@ private val bottomNavigations = arrayOf(
             focused = IconPicture(vector = Icons.Filled.Group),
             unfocused = IconPicture(vector = Icons.Outlined.Group)
         ),
-        labelId = R.string.shift
+            labelId = R.string.shift_cut ,
     ),
     BottomBarDestination(
         direction = SettingsScreenDestination,

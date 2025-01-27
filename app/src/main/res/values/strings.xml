@@ -34,14 +34,19 @@
     <string name="create_shift">Nouveau Déplacement</string>
     <string name="driver_picker">Choisir un conducteur</string>
     <string name="value_negative">Valeur négative</string>
-    <string name="status_unknown">Status manquant</string>
+    <string name="status_unknown">Statut manquant</string>
     <string name="create_vehicle">Nouveau véhicule</string>
     <string name="brand_and_model">Marque et Model</string>
     <string name="matriculation">Immatriculation</string>
     <string name="kilometers">Kilométrage</string>
-    <string name="status">Status du véhicule</string>
+    <string name="status">Statut du véhicule</string>
     <string name="edit_vehicle">Modifier le véhicule</string>
     <string name="list_vehicle">Liste des Véhicules</string>
     <string name="vehicle">Véhicule</string>
     <string name="invalid_matriculation_length">Longueur d\'immatriculation incorrecte</string>
+    <string name="driver_pick">Choisir un conducteur</string>
+    <string name="passengers_picker">Choisir un passager</string>
+    <string name="vehicle_picker">Choisir un véhicule</string>
+    <string name="add">Ajouter</string>
+    <string name="shift_cut">Dépl.</string>
 </resources>
