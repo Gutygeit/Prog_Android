@@ -26,6 +26,7 @@ class ShiftUIValidator (private val shift : FullShift) {
         }
     }
 
+    /*
     fun validateDuration(newValue: Int) : Int? {
         return when {
             newValue < 1 ->  R.string.duration_too_short
@@ -34,7 +35,7 @@ class ShiftUIValidator (private val shift : FullShift) {
         }
 
     }
-
+     */
     fun validateVehicle(newValue: Vehicle?) : Int? {
         return null
     }

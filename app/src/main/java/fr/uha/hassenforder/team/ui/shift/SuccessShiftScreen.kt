@@ -31,13 +31,13 @@ fun SuccessShiftScreen(
                 field = shift.startDate,
                 onValueChange = { send(ShiftViewModel.UIEvent.StartDateChanged(it)) },
                 modifier = Modifier.fillMaxWidth(),
-                labelId = R.string.date,
+                labelId = R.string.start_date,
             )
             OutlinedTextFieldWrapper(
                 field = shift.endDate,
                 onValueChange = { send(ShiftViewModel.UIEvent.EndDateChanged(it)) },
                 modifier = Modifier.fillMaxWidth(),
-                labelId = R.string.duration,
+                labelId = R.string.end_date,
             )
             OutlinedVehicleFieldWrapper(
                 field = shift.vehicle,
