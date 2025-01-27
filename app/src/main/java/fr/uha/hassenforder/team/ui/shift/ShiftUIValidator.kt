@@ -49,8 +49,8 @@ class ShiftUIValidator (private val shift : FullShift) {
 
     fun validateShift () : Boolean {
         if (validateLocation(shift.shift.location) != null) return false
-        if (validateDate(shift.shift.date) != null) return false
-        if (validateDuration(shift.shift.duration) != null) return false
+        if (validateDate(shift.shift.startDate) != null) return false
+        if (validateDate(shift.shift.endDate) != null) return false
         return true
     }
 }

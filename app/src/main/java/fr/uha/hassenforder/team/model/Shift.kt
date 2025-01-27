@@ -8,8 +8,8 @@ data class Shift(
     @PrimaryKey(autoGenerate = true)
     val sid : Long,
     val location : String,
-    val date : String,
-    val duration: Int,
+    val startDate : String,
+    val endDate: String,
     val vehicleId : Long,
     val driverId : Long,
 )

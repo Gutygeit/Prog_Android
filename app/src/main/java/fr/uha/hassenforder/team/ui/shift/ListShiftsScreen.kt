@@ -99,10 +99,11 @@ fun ShiftItem (shift: Shift) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(imageVector = Icons.TimeStart, contentDescription = "phone")
-                Text(shift.date, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                Text("Dp : ")
+                Text(shift.startDate, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                 Text(",")
-                Text(shift.duration.toString(), fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                Text("heures")
+                Text(" Ar : ")
+                Text(shift.endDate, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                 Icon(imageVector = Icons.TimeStart, contentDescription = "phone")
             }
         },

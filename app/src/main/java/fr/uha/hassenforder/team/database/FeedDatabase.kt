@@ -194,7 +194,7 @@ class FeedDatabase (
                 0,
                 getRandomShiftLocation(),
                 getRandomShiftDate(),
-                getRandomBetween(1, 10),
+                getRandomShiftDate(),
                 vehicle,
                 driver,
             )

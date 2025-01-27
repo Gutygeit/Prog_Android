@@ -28,10 +28,10 @@ interface ShiftDao {
     suspend fun update (team : ShiftUpdateDTO.Location)
 
     @Update(entity = Shift::class)
-    suspend fun update (team : ShiftUpdateDTO.Date)
+    suspend fun update (team : ShiftUpdateDTO.StartDate)
 
     @Update(entity = Shift::class)
-    suspend fun update (team : ShiftUpdateDTO.Duration)
+    suspend fun update (team : ShiftUpdateDTO.EndDate)
 
     @Update(entity = Shift::class)
     suspend fun update (team : ShiftUpdateDTO.Vehicle)
