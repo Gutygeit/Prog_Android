@@ -33,8 +33,8 @@ class ShiftRepository(
     suspend fun update(update: ShiftUpdateDTO) = withContext(dispatcher){
         when (update) {
             is ShiftUpdateDTO.Location -> shiftDao.update(update)
-            is ShiftUpdateDTO.Date -> shiftDao.update(update)
-            is ShiftUpdateDTO.Duration -> shiftDao.update(update)
+            is ShiftUpdateDTO.StartDate -> shiftDao.update(update)
+            is ShiftUpdateDTO.EndDate -> shiftDao.update(update)
             is ShiftUpdateDTO.Vehicle -> shiftDao.update(update)
             is ShiftUpdateDTO.Driver -> shiftDao.update(update)
         }

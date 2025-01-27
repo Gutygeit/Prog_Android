@@ -7,14 +7,14 @@ sealed class ShiftUpdateDTO {
         val location: String
     ) : ShiftUpdateDTO()
 
-    data class Date(
+    data class StartDate(
         val sid: Long,
-        val date: String
+        val startDate: String
     ) : ShiftUpdateDTO()
 
-    data class Duration(
+    data class EndDate(
         val sid: Long,
-        val duration: Int
+        val endDate: String
     ) : ShiftUpdateDTO()
 
     data class Vehicle(

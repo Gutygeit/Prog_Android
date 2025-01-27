@@ -32,8 +32,8 @@ class ShiftViewModel @Inject constructor(
 
     data class UIState(
         val location: FieldWrapper<String>,
-        val date: FieldWrapper<String>,
-        val duration: FieldWrapper<Int>,
+        val startDate: FieldWrapper<String>,
+        val endDate: FieldWrapper<String>,
         val vehicle: FieldWrapper<Vehicle?>,
         val driver: FieldWrapper<Driver?>,
         val passengers: FieldWrapper<List<Driver>>,
@@ -46,18 +46,15 @@ class ShiftViewModel @Inject constructor(
                     shift.shift.location,
                     validator.validateLocation(shift.shift.location)
                 )
-                val date = FieldWrapper(shift.shift.date, validator.validateDate(shift.shift.date))
-                val duration = FieldWrapper(
-                    shift.shift.duration,
-                    validator.validateDuration(shift.shift.duration)
-                )
+                val startDate = FieldWrapper(shift.shift.startDate, validator.validateDate(shift.shift.startDate))
+                val endDate = FieldWrapper(shift.shift.endDate, validator.validateDate(shift.shift.endDate))
                 val vehicle: FieldWrapper<Vehicle?> =
                     FieldWrapper(shift.vehicle, validator.validateVehicle(shift.vehicle))
                 val driver: FieldWrapper<Driver?> =
                     FieldWrapper(shift.driver, validator.validateDriver(shift.driver))
                 val passengers: FieldWrapper<List<Driver>> =
                     FieldWrapper(shift.passengers, validator.validatePassengers(shift.passengers))
-                return UIState(location, date, duration, vehicle, driver, passengers, shift)
+                return UIState(location, startDate, endDate, vehicle, driver, passengers, shift)
             }
         }
     }
@@ -87,8 +84,8 @@ class ShiftViewModel @Inject constructor(
 
     sealed class UIEvent {
         data class LocationChanged(val newValue: String) : UIEvent()
-        data class DateChanged(val newValue: String) : UIEvent()
-        data class DurationChanged(val newValue: Int) : UIEvent()
+        data class StartDateChanged(val newValue: String) : UIEvent()
+        data class EndDateChanged(val newValue: String) : UIEvent()
         data class VehicleChanged(val newValue: Vehicle?) : UIEvent()
         data class DriverChanged(val newValue: Driver?) : UIEvent()
         data class AddMember(val newValue: Driver) : UIEvent()
@@ -103,11 +100,11 @@ class ShiftViewModel @Inject constructor(
                 is UIEvent.LocationChanged ->
                     repository.update(ShiftUpdateDTO.Location(sid, uiEvent.newValue))
 
-                is UIEvent.DateChanged ->
-                    repository.update(ShiftUpdateDTO.Date(sid, uiEvent.newValue))
+                is UIEvent.StartDateChanged ->
+                    repository.update(ShiftUpdateDTO.StartDate(sid, uiEvent.newValue))
 
-                is UIEvent.DurationChanged ->
-                    repository.update(ShiftUpdateDTO.Duration(sid, uiEvent.newValue))
+                is UIEvent.EndDateChanged ->
+                    repository.update(ShiftUpdateDTO.EndDate(sid, uiEvent.newValue))
 
                 is UIEvent.VehicleChanged ->
                     repository.update(ShiftUpdateDTO.Vehicle(sid, uiEvent.newValue?.vid ?: 0))

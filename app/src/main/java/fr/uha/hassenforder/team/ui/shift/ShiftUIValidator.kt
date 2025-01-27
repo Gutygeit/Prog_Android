@@ -26,6 +26,7 @@ class ShiftUIValidator (private val shift : FullShift) {
         }
     }
 
+    /*
     fun validateDuration(newValue: Int) : Int? {
         return when {
             newValue < 1 ->  R.string.duration_too_short
@@ -34,7 +35,7 @@ class ShiftUIValidator (private val shift : FullShift) {
         }
 
     }
-
+     */
     fun validateVehicle(newValue: Vehicle?) : Int? {
         return null
     }
@@ -49,8 +50,8 @@ class ShiftUIValidator (private val shift : FullShift) {
 
     fun validateShift () : Boolean {
         if (validateLocation(shift.shift.location) != null) return false
-        if (validateDate(shift.shift.date) != null) return false
-        if (validateDuration(shift.shift.duration) != null) return false
+        if (validateDate(shift.shift.startDate) != null) return false
+        if (validateDate(shift.shift.endDate) != null) return false
         return true
     }
 }

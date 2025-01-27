@@ -17,7 +17,6 @@ import fr.uha.hassenforder.android.ui.StateScreen
 import fr.uha.hassenforder.android.ui.app.AppTopBar
 import fr.uha.hassenforder.team.R
 import fr.uha.hassenforder.team.model.Shift
-import fr.uha.hassenforder.team.ui.vehicle.SuccessVehicleScreen
 
 @Destination<RootGraph>
 @Composable
@@ -31,7 +30,7 @@ fun CreateShiftScreen (
 
     LaunchedEffect(Unit) {
         vm.create(
-            Shift(0, "", "", 0, 0, 0)
+            Shift(0, "", "", "", 0, 0)
         )
         vm.titleBuilder.setScreenNameId(R.string.create_shift)
     }

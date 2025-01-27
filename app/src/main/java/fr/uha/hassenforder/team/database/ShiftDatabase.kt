@@ -21,7 +21,7 @@ import fr.uha.hassenforder.team.model.Vehicle
         ShiftVehiculeAssociation::class,
         ShiftDriverAssociation::class
     ],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 
