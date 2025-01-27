@@ -29,7 +29,7 @@ fun OutlineVehicleField(
 
     if (showDialog.value) {
         VehiclePicker (
-            titleId = R.string.title_day,
+            titleId = R.string.vehicle_picker,
         ) { showDialog.value = false; if (it != null) onValueChange(it) }
     }
 

@@ -21,7 +21,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Team2025Theme {
+            Team2025Theme(dynamicColor = false, darkTheme = false
+            ) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
@@ -59,10 +60,4 @@ Page véhicule :
     - Empecher la desincrémentation dans kilométrage (facultatif)
 
 
-Page déplacements :
-    - Déplacements en bas mal affiché
-    - Pas de bouton pour valider un déplaement -> obliger de retour en arrière
-
-Page Paramètres :
-    - Améliorer le visu des boutons
  */

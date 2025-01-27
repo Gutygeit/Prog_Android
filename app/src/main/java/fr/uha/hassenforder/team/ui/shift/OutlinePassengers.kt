@@ -33,7 +33,7 @@ fun OutlinedPassengersField(
 
     if (showDialog.value) {
         DriverPicker (
-            titleId = R.string.driver_picker,
+            titleId = R.string.passengers_picker,
         ) { showDialog.value = false; if (it != null) onAddMember(it) }
     }
 

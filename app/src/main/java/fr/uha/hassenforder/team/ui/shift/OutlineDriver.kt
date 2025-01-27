@@ -31,7 +31,7 @@ fun OutlineDriverField(
 
     if (showDialog.value) {
         DriverPicker (
-            titleId = R.string.title_day,
+            titleId = R.string.driver_picker,
         ) { showDialog.value = false; if (it != null) onValueChange(it) }
     }
 

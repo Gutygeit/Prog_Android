@@ -32,9 +32,6 @@ fun CreateDriverScreen (
     val uiTitleState by vm.uiTitleState.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
-        vm.create(
-            Driver(0, "", "", "", License.A)
-        )
         vm.titleBuilder.setScreenNameId(R.string.create_driver)
     }
 
@@ -42,8 +39,13 @@ fun CreateDriverScreen (
         AppMenuEntry.ActionEntry(
             titleId = R.string.save,
             icon = Icons.Filled.Save,
-            enabled = { uiTitleState.isSavable ?: false},
-            listener = { vm.save(); navigator.popBackStack() }
+            //enabled = { uiTitleState.isSavable ?: false},
+            listener = {
+                vm.create(
+                Driver(0, "", "", "", License.A));
+                vm.save();
+                navigator.popBackStack()
+            }
         )
     )
 
